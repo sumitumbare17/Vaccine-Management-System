@@ -61,13 +61,13 @@ public class Registration extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 5, 419, 52);
+		panel.setBounds(10, 5, 500, 52);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel(" Registration Page");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(82, 11, 256, 30);
+		lblNewLabel.setBounds(139, 11, 198, 30);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Last Name");
@@ -191,6 +191,12 @@ public class Registration extends JFrame {
 		comboBox.setBounds(141, 281, 147, 22);
 		contentPane.add(comboBox);
 		
+		JLabel lblNewLabel_3 = new JLabel("* Select Apropriate Gender");
+		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setBounds(309, 282, 188, 14);
+		lblNewLabel_3.setVisible(false);
+		contentPane.add(lblNewLabel_3);
+		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setForeground(Color.BLACK);
 		btnSubmit.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -230,6 +236,10 @@ public class Registration extends JFrame {
 				if( dateChooser.getDate()==null) {
 					lblNewLabel_2_5.setVisible(true);
 				}
+				if(comboBox.getSelectedIndex()==0)
+				{
+					lblNewLabel_3.setVisible(true);
+				}
 				 
 			}
 		});
@@ -256,6 +266,7 @@ public class Registration extends JFrame {
 				lblNewLabel_2_5.setVisible(false);
 				lblNewLabel_2_6.setVisible(false);
 				comboBox.setSelectedIndex(0);
+				lblNewLabel_3.setVisible(false);
 				
 			}
 		});
@@ -273,6 +284,8 @@ public class Registration extends JFrame {
 		btnBack.setBackground(Color.WHITE);
 		btnBack.setBounds(300, 344, 104, 28);
 		contentPane.add(btnBack);
+		
+		
 		
 		
 		
