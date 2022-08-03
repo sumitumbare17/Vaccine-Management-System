@@ -44,26 +44,32 @@ public class Home_page extends JFrame {
 	 */
 	public Home_page() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 832, 515);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 4, true));
+		panel_1.setBounds(10, 11, 763, 169);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
 		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(Color.BLUE, 5, true));
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(10, 65, 414, 185);
+		panel.setBounds(10, 62, 763, 386);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("LOGIN");
-		btnNewButton.setBorderPainted(false);
-		btnNewButton.setBounds(175, 64, 89, 23);
+		btnNewButton.setBounds(295, 244, 89, 23);
 		panel.add(btnNewButton);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBorder(new LineBorder(new Color(255, 255, 0), 3, true));
-		btnNewButton.setBackground(Color.GREEN);
+		btnNewButton.setBackground(new Color(51, 0, 204));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login lg = new Login();
@@ -71,10 +77,10 @@ public class Home_page extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		
 		JButton btnNewButton_1 = new JButton("Sign UP");
-		btnNewButton_1.setBounds(175, 127, 89, 23);
+		btnNewButton_1.setBounds(295, 296, 89, 23);
 		panel.add(btnNewButton_1);
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.setBackground(Color.RED);
@@ -87,29 +93,10 @@ public class Home_page extends JFrame {
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\1598055738172.jpg"));
-		lblNewLabel_1.setBounds(0, 0, 414, 185);
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(0, 87, 414, 43);
-		panel.add(lblNewLabel_2);
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\coronavirus-2.tmb-479v.jpg"));
-		lblNewLabel_2.setBorder(new LineBorder(new Color(0, 0, 0), 4, true));
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
-		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 4, true));
-		panel_1.setBounds(10, 11, 414, 43);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("HOME PAGE");
-		lblNewLabel.setBounds(157, 11, 101, 24);
-		panel_1.add(lblNewLabel);
-		lblNewLabel.setBackground(Color.CYAN);
+		JLabel lblNewLabel = new JLabel("Registration Or Login For Vaccination");
+		lblNewLabel.setBounds(192, 186, 303, 24);
+		panel.add(lblNewLabel);
+		lblNewLabel.setBackground(new Color(0, 255, 255));
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 	}
 }
