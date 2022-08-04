@@ -1,8 +1,9 @@
 package com.cares.services;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
+import com.cares.dao.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -19,12 +20,13 @@ import java.awt.Rectangle;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.JPasswordField;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -49,7 +51,7 @@ public class Login extends JFrame {
 		setBounds(new Rectangle(0, 0, 900, 700));
 		setMaximumSize(new Dimension(900, 700));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 798, 608);
+		setBounds(100, 100, 890, 670);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3));
@@ -57,18 +59,18 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 84, 391, 468);
+		panel_1.setBounds(10, 115, 391, 476);
 		panel_1.setMaximumSize(new Dimension(300, 600));
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\vaccinefu.jpg"));
-		lblNewLabel_2.setBounds(0, 0, 391, 468);
+		lblNewLabel_2.setBounds(0, 11, 391, 499);
 		panel_1.add(lblNewLabel_2);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(425, 84, 347, 468);
+		panel.setBounds(435, 122, 382, 482);
 		panel.setBackground(Color.WHITE);
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 6, true));
 		contentPane.add(panel);
@@ -92,12 +94,57 @@ public class Login extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(57, 205, 243, 24);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		JLabel lblNewLabel_3 = new JLabel("* This Aadhar No is Not Registered ");
+		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setBounds(166, 169, 195, 14);
+		lblNewLabel_3.setVisible(false);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("* Enter Correct Pass");
+		lblNewLabel_3_1.setForeground(Color.RED);
+		lblNewLabel_3_1.setBounds(183, 230, 115, 14);
+		lblNewLabel_3_1.setVisible(false);
+		panel.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_8 = new JLabel("* Enter Aadhar No");
+		lblNewLabel_8.setForeground(Color.RED);
+		lblNewLabel_8.setBounds(167, 169, 150, 14);
+		lblNewLabel_8.setVisible(false);
+		panel.add(lblNewLabel_8);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(57, 202, 241, 20);
+		panel.add(passwordField);
+		
 		
 		JButton btnNewButton_1 = new JButton("LOGIN ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabel_8.setVisible(false);
+				lblNewLabel_3_1.setVisible(false);
+				lblNewLabel_3.setVisible(false);
+				
+				if(textField.getText().equals(""))
+				{
+					lblNewLabel_8.setVisible(true);
+				}
+				else {
+				
+				DataBase db = new DataBase();
+				int a = db.login(passwordField.getText(),textField.getText());
+				switch (a)
+				{
+				case 1: 
+					lblNewLabel_3.setVisible(true);
+					break;
+				case 2:
+					lblNewLabel_3_1.setVisible(true);
+					break;
+				}
+				}
+				
+			}
+		});
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBorderPainted(false);
@@ -134,15 +181,29 @@ public class Login extends JFrame {
 		lblNewLabel_5.setBounds(10, 11, 307, 65);
 		panel_2.add(lblNewLabel_5);
 		
+		
+		
+		
+		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
-		panel_3.setBounds(10, 11, 762, 62);
+		panel_3.setBounds(10, 11, 797, 100);
 		contentPane.add(panel_3);
 		panel_3.setLayout(null);
 		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\logo-help-us.png"));
+		lblNewLabel_6.setBounds(529, 0, 258, 84);
+		panel_3.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("New label");
+		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\sumit\\Pictures\\Screenshot 2022-08-04 211509.png"));
+		lblNewLabel_7.setBounds(0, 0, 200, 91);
+		panel_3.add(lblNewLabel_7);
+		
 		JLabel lblNewLabel_4 = new JLabel("New label");
 		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\cowin.jpg"));
-		lblNewLabel_4.setBounds(191, 0, 350, 62);
+		lblNewLabel_4.setBounds(191, 12, 342, 72);
 		panel_3.add(lblNewLabel_4);
 	}
 }
