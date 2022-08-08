@@ -21,6 +21,8 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.border.MatteBorder;
 
 public class Login extends JFrame {
 
@@ -48,81 +50,123 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
-		setBounds(new Rectangle(0, 0, 900, 700));
+		setBounds(new Rectangle(0, 0, 900, 600));
 		setMaximumSize(new Dimension(900, 700));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 890, 670);
+		setBounds(100, 100, 929, 698);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 115, 391, 476);
-		panel_1.setMaximumSize(new Dimension(300, 600));
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		JLabel lblNewLabel = new JLabel("Log In");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Script MT Bold", Font.BOLD, 29));
+		lblNewLabel.setBounds(388, 119, 99, 40);
+		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\vaccinefu.jpg"));
-		lblNewLabel_2.setBounds(0, 11, 391, 499);
-		panel_1.add(lblNewLabel_2);
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.WHITE);
+		separator_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		separator_1.setBackground(Color.WHITE);
+		separator_1.setBounds(388, 170, 125, 2);
+		contentPane.add(separator_1);
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		separator_3.setBackground(Color.WHITE);
+		separator_3.setBounds(388, 157, 125, 2);
+		contentPane.add(separator_3);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(435, 122, 382, 482);
 		panel.setBackground(Color.WHITE);
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 6, true));
+		panel.setBounds(88, 195, 728, 410);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(57, 149, 241, 20);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.setBorder(new LineBorder(new Color(102, 102, 204), 3, true));
-		btnNewButton.setBounds(57, 315, 241, 31);
-		panel.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Home_page hp= new Home_page();
-				hp.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		
-		JLabel lblNewLabel_3 = new JLabel("* This Aadhar No is Not Registered ");
-		lblNewLabel_3.setForeground(Color.RED);
-		lblNewLabel_3.setBounds(166, 169, 195, 14);
-		lblNewLabel_3.setVisible(false);
-		panel.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_3_1 = new JLabel("* Enter Correct Pass");
-		lblNewLabel_3_1.setForeground(Color.RED);
-		lblNewLabel_3_1.setBounds(183, 230, 115, 14);
-		lblNewLabel_3_1.setVisible(false);
-		panel.add(lblNewLabel_3_1);
-		
-		JLabel lblNewLabel_8 = new JLabel("* Enter Aadhar No");
-		lblNewLabel_8.setForeground(Color.RED);
-		lblNewLabel_8.setBounds(167, 169, 150, 14);
-		lblNewLabel_8.setVisible(false);
-		panel.add(lblNewLabel_8);
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(0, 0, 410, 410);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\can-beat-coronavirus-optimistic-.jpg"));
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(57, 202, 241, 20);
+		passwordField.setBounds(456, 222, 241, 29);
 		panel.add(passwordField);
+		passwordField.setOpaque(false);
+		passwordField.setBorder(new EmptyBorder(0, 0, 0, 0));
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(456, 249, 241, 2);
+		panel.add(separator);
+		separator.setBackground(Color.BLACK);
+		separator.setBorder(new LineBorder(new Color(0, 0, 0)));
+		
+		textField = new JTextField();
+		textField.setBounds(456, 151, 241, 31);
+		panel.add(textField);
+		
+		textField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		textField.setOpaque(false);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel(" User ID :");
+		lblNewLabel_1.setBounds(450, 115, 93, 25);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		
+		JLabel lblNewLabel_1_1 = new JLabel("  PassWord :");
+		lblNewLabel_1_1.setBounds(444, 200, 99, 25);
+		panel.add(lblNewLabel_1_1);
+		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		
+		JLabel lblNewLabel_3_1 = new JLabel("* Enter Correct Pass");
+		lblNewLabel_3_1.setBounds(598, 206, 107, 14);
+		panel.add(lblNewLabel_3_1);
+		lblNewLabel_3_1.setForeground(Color.RED);
+		
+		JLabel lblNewLabel_3 = new JLabel("* This Aadhar No is Not Registered ");
+		lblNewLabel_3.setBounds(527, 121, 170, 14);
+		panel.add(lblNewLabel_3);
+		lblNewLabel_3.setForeground(Color.RED);
+		
+		JLabel lblNewLabel_8 = new JLabel("* Enter Aadhar No");
+		lblNewLabel_8.setBounds(605, 121, 93, 14);
+		panel.add(lblNewLabel_8);
+		lblNewLabel_8.setForeground(Color.RED);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\wallpaper2you_172698.jpg"));
+		lblNewLabel_4.setBounds(0, 52, 913, 596);
+		contentPane.add(lblNewLabel_4);
+		lblNewLabel_8.setVisible(false);
+		lblNewLabel_3.setVisible(false);
+		lblNewLabel_3_1.setVisible(false);
 		
 		
 		JButton btnNewButton_1 = new JButton("LOGIN ");
+		btnNewButton_1.setBackground(new Color(240, 248, 255));
+		btnNewButton_1.setBorder(new LineBorder(new Color(0, 191, 255), 3));
+		btnNewButton_1.setBounds(523, 288, 99, 25);
+		panel.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Coronavirus disease (COVID-19): Vaccines");
+		lblNewLabel_3_2.setForeground(Color.WHITE);
+		lblNewLabel_3_2.setFont(new Font("Perpetua Titling MT", Font.BOLD, 25));
+		lblNewLabel_3_2.setBounds(83, 5, 655, 44);
+		contentPane.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("New label");
+		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\heading.jpg"));
+		lblNewLabel_2_1.setBounds(0, 0, 927, 55);
+		contentPane.add(lblNewLabel_2_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblNewLabel_8.setVisible(false);
 				lblNewLabel_3_1.setVisible(false);
 				lblNewLabel_3.setVisible(false);
+				
+				
 				
 				if(textField.getText().equals(""))
 				{
@@ -141,69 +185,11 @@ public class Login extends JFrame {
 					lblNewLabel_3_1.setVisible(true);
 					break;
 				}
+				
 				}
 				
 			}
 		});
-		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
-		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setBorderPainted(false);
-		btnNewButton_1.setBackground(new Color(102, 102, 204));
-		btnNewButton_1.setBounds(55, 255, 243, 31);
-		panel.add(btnNewButton_1);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		JLabel lblNewLabel_1 = new JLabel("  User ID");
-		lblNewLabel_1.setBounds(57, 124, 99, 25);
-		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		
-		JLabel lblNewLabel_1_1 = new JLabel("  PassWord");
-		lblNewLabel_1_1.setBounds(57, 180, 99, 25);
-		panel.add(lblNewLabel_1_1);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(160, 160, 160), 6));
-		panel_2.setBounds(10, 11, 327, 87);
-		panel.add(panel_2);
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("  Login  ");
-		lblNewLabel.setBounds(124, 29, 83, 29);
-		panel_2.add(lblNewLabel);
-		lblNewLabel.setBackground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Utsaah", Font.BOLD, 26));
-		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\jdoctor.jpg"));
-		lblNewLabel_5.setBounds(10, 11, 307, 65);
-		panel_2.add(lblNewLabel_5);
-		
-		
-		
-		
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(Color.WHITE);
-		panel_3.setBounds(10, 11, 797, 100);
-		contentPane.add(panel_3);
-		panel_3.setLayout(null);
-		
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\logo-help-us.png"));
-		lblNewLabel_6.setBounds(529, 0, 258, 84);
-		panel_3.add(lblNewLabel_6);
-		
-		JLabel lblNewLabel_7 = new JLabel("New label");
-		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\sumit\\Pictures\\Screenshot 2022-08-04 211509.png"));
-		lblNewLabel_7.setBounds(0, 0, 200, 91);
-		panel_3.add(lblNewLabel_7);
-		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\cowin.jpg"));
-		lblNewLabel_4.setBounds(191, 12, 342, 72);
-		panel_3.add(lblNewLabel_4);
 	}
 }

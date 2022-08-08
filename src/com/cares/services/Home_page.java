@@ -45,57 +45,16 @@ public class Home_page extends JFrame {
 	 */
 	public Home_page() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 771, 479);
+		setBounds(100, 100, 930, 479);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLACK);
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
-		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 4, true));
-		panel_1.setBounds(10, 11, 713, 81);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_2.setBounds(10, 11, 58, 59);
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\homej.jpg"));
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_2.setForeground(Color.DARK_GRAY);
-		panel_1.add(btnNewButton_2);
-		
-		JLabel lblNewLabel = new JLabel("Registration Or Login For Vaccination");
-		lblNewLabel.setBounds(79, 11, 356, 59);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(lblNewLabel);
-		lblNewLabel.setBackground(new Color(0, 255, 255));
-		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
-		
-		JButton btnNewButton_1 = new JButton("Sign in");
-		btnNewButton_1.setBounds(448, 43, 108, 27);
-		panel_1.add(btnNewButton_1);
-		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setIcon(null);
-		btnNewButton_1.setBorderPainted(false);
-		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Registration reg = new Registration();
-				reg.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		
 		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setBounds(445, 11, 111, 27);
-		panel_1.add(btnNewButton);
+		btnNewButton.setBounds(287, 364, 111, 27);
+		contentPane.add(btnNewButton);
 		btnNewButton.setIcon(null);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBorderPainted(false);
@@ -110,36 +69,36 @@ public class Home_page extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(20, 103, 703, 326);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JButton btnNewButton_1 = new JButton("Sign in");
+		btnNewButton_1.setBounds(443, 364, 108, 27);
+		contentPane.add(btnNewButton_1);
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setIcon(null);
+		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setBackground(Color.DARK_GRAY);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Registration reg = new Registration();
+				reg.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		
-		JLabel lblNewLabel_2 = new JLabel("Get Vaccinated in 3 Steps");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(190, 0, 234, 34);
-		panel.add(lblNewLabel_2);
+		JLabel lblNewLabel_3 = new JLabel("Coronavirus disease (COVID-19): Vaccines");
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setFont(new Font("Perpetua Titling MT", Font.BOLD, 25));
+		lblNewLabel_3.setBounds(89, 8, 655, 44);
+		contentPane.add(lblNewLabel_3);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(204, 255, 255));
-		panel_2.setBounds(10, 37, 683, 278);
-		panel.add(panel_2);
-		panel_2.setLayout(null);
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\heading.jpg"));
+		lblNewLabel_2.setBounds(-1, 1, 918, 55);
+		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Pictures\\step1c.jpg"));
-		lblNewLabel_1.setBounds(4, 0, 213, 267);
-		panel_2.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\sumit\\Pictures\\step2.jpg"));
-		lblNewLabel_3.setBounds(227, 0, 213, 267);
-		panel_2.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\sumit\\Pictures\\step3.jpg"));
-		lblNewLabel_4.setBounds(460, 0, 213, 267);
-		panel_2.add(lblNewLabel_4);
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\wallpaper2you_172698.jpg"));
+		lblNewLabel.setBounds(-1, 53, 915, 387);
+		contentPane.add(lblNewLabel);
 	}
 }
