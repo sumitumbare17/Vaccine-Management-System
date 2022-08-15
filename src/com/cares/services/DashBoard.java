@@ -28,6 +28,8 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
@@ -83,15 +85,22 @@ public class DashBoard extends JFrame {
 		
 		DataBase db = new DataBase();
 		db.getDetails(Adhar);
-		
+		db.bookingCheck(Adhar);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 957, 690);
+		setBounds(100, 100, 957, 729);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setLayout(null);
 		
+		JLabel status_name_1 = new JLabel("  YOUR VACCINATION STATUS");
+		status_name_1.setBackground(Color.WHITE);
+		status_name_1.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 15));
+		status_name_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(0, 0, 0)));
+		status_name_1.setBounds(388, 67, 235, 28);
+		contentPane.add(status_name_1);
+		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 84, 219, 365);
+		panel.setBounds(0, 86, 219, 365);
 		panel.setBackground(Color.WHITE);
 		panel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		contentPane.add(panel);
@@ -125,27 +134,28 @@ public class DashBoard extends JFrame {
 			}
 		});
 		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblNewLabel.setBounds(10, 21, 199, 19);
+		lblNewLabel.setBounds(59, 21, 150, 19);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel(db.name);
 		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblNewLabel_1.setBounds(10, 51, 199, 19);
+		lblNewLabel_1.setBounds(59, 51, 150, 19);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel(db.EMAIL);
 		lblNewLabel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblNewLabel_2.setBounds(10, 81, 199, 19);
+		lblNewLabel_2.setBounds(59, 91, 150, 19);
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel(db.GENDER);
 		lblNewLabel_3.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblNewLabel_3.setBounds(10, 111, 199, 19);
+		lblNewLabel_3.setBounds(59, 121, 150, 19);
 		panel.add(lblNewLabel_3);
+		 
 		
 		JLabel lblNewLabel_3_1 = new JLabel(db.PHONE);
 		lblNewLabel_3_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblNewLabel_3_1.setBounds(10, 141, 199, 19);
+		lblNewLabel_3_1.setBounds(59, 162, 150, 19);
 		panel.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_3_3 = new JLabel("Edit Profile");
@@ -153,6 +163,9 @@ public class DashBoard extends JFrame {
 		lblNewLabel_3_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				EditProfile ep = new EditProfile(Adhar);
+				ep.setVisible(true);
+				setVisible(false);
 				
 			}
 		});
@@ -174,17 +187,14 @@ public class DashBoard extends JFrame {
 		lblNewLabel_3_3_2.setBounds(59, 301, 78, 19);
 		panel.add(lblNewLabel_3_3_2);
 		
-		JPanel statuspanel = new JPanel();
-		statuspanel.setBounds(908, 82, 677, 516);
-		contentPane.add(statuspanel);
-		statuspanel.setVisible(false);
-		statuspanel.setLayout(null);
-		
-		JLabel lblNewLabel_5 = new JLabel("Status");
+		JLabel lblNewLabel_5 = new JLabel("BOOK");
 		lblNewLabel_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				statuspanel.setVisible(true);
+				VaccineBooking vb = new VaccineBooking(Adhar);
+				vb.setVisible(true);
+				setVisible(false);
+				
 			}
 		});
 		
@@ -194,8 +204,7 @@ public class DashBoard extends JFrame {
 		lblNewLabel_3_3_2_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				panel.setVisible(false);
-				statuspanel.setVisible(false);
+			panel.setVisible(false);
 				
 			}
 		});
@@ -211,7 +220,7 @@ public class DashBoard extends JFrame {
 		
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblNewLabel_5.setBounds(10, 171, 151, 19);
+		lblNewLabel_5.setBounds(58, 206, 151, 19);
 		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("");
@@ -224,96 +233,46 @@ public class DashBoard extends JFrame {
 		lblNewLabel_7.setBounds(10, 324, 25, 30);
 		panel.add(lblNewLabel_7);
 		
-		JLabel lblNewLabel_15 = new JLabel("X");
-		lblNewLabel_15.setForeground(Color.RED);
-		lblNewLabel_15.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_15.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_15.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				statuspanel.setVisible(false);
-			}
-		});
-		lblNewLabel_15.setBounds(639, 0, 28, 28);
-		statuspanel.add(lblNewLabel_15);
-			
-		JLabel lblNewLabel_8 = new JLabel("New label");
-		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\profile icon images-modified.jpg"));
-		lblNewLabel_8.setBounds(241, 11, 154, 171);
-		statuspanel.add(lblNewLabel_8);
+		JLabel lblNewLabel_13 = new JLabel("");
+		lblNewLabel_13.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\id.png"));
+		lblNewLabel_13.setBounds(19, 8, 30, 29);
+		panel.add(lblNewLabel_13);
 		
-		JLabel status_name = new JLabel(db.name);
-		status_name.setBorder(new LineBorder(new Color(0, 0, 0)));
-		status_name.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 15));
-		status_name.setBounds(211, 193, 229, 28);
-		statuspanel.add(status_name);
+		JLabel lblNewLabel_15 = new JLabel("");
+		lblNewLabel_15.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\mail2.png"));
+		lblNewLabel_15.setBounds(10, 83, 30, 27);
+		panel.add(lblNewLabel_15);
 		
-		JLabel lblNewLabel_9 = new JLabel("   Vaccination Status");
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(241, 243, 171, 34);
-		statuspanel.add(lblNewLabel_9);
+		JLabel lblNewLabel_16 = new JLabel("");
+		lblNewLabel_16.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\heloo.png"));
+		lblNewLabel_16.setBounds(13, 51, 46, 22);
+		panel.add(lblNewLabel_16);
 		
-		JSeparator separator_4 = new JSeparator();
-		separator_4.setBorder(new MatteBorder(3, 0, 0, 0, (Color) new Color(0, 0, 0)));
-		separator_4.setBounds(23, 261, 218, 21);
-		statuspanel.add(separator_4);
+		JLabel lblNewLabel_17 = new JLabel("");
+		lblNewLabel_17.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\MALE.png"));
+		lblNewLabel_17.setBounds(10, 121, 30, 30);
+		panel.add(lblNewLabel_17);
 		
-		JSeparator separator_4_1 = new JSeparator();
-		separator_4_1.setBorder(new MatteBorder(3, 0, 0, 0, (Color) new Color(0, 0, 0)));
-		separator_4_1.setBounds(404, 261, 218, 21);
-		statuspanel.add(separator_4_1);
+		JLabel lblNewLabel_18 = new JLabel("");
+		lblNewLabel_18.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\phone-icon-clip-art--royalty--7.png"));
+		lblNewLabel_18.setBounds(10, 162, 30, 30);
+		panel.add(lblNewLabel_18);
 		
-		JSeparator separator_4_2 = new JSeparator();
-		separator_4_2.setBorder(new MatteBorder(0, 3, 0, 0, (Color) new Color(0, 0, 0)));
-		separator_4_2.setBounds(23, 261, 13, 233);
-		statuspanel.add(separator_4_2);
+		JLabel lblNewLabel_18_1 = new JLabel("");
+		lblNewLabel_18_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\female_icon_sign_flat_symmetric_geometry_silhouette_design_6923667\\female (1).png"));
+		lblNewLabel_18_1.setBounds(10, 112, 46, 42);
+		panel.add(lblNewLabel_18_1);
 		
-		JSeparator separator_4_2_1 = new JSeparator();
-		separator_4_2_1.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(0, 0, 0)));
-		separator_4_2_1.setBounds(23, 492, 599, 2);
-		statuspanel.add(separator_4_2_1);
-		
-		JSeparator separator_4_2_2 = new JSeparator();
-		separator_4_2_2.setBorder(new MatteBorder(0, 0, 0, 3, (Color) new Color(0, 0, 0)));
-		separator_4_2_2.setBounds(580, 261, 42, 233);
-		statuspanel.add(separator_4_2_2);
-		
-		JLabel lblNewLabel_10 = new JLabel("Dose 1");
-		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_10.setBounds(58, 304, 85, 28);
-		statuspanel.add(lblNewLabel_10);
-		
-		JLabel lblNewLabel_10_1 = new JLabel("Dose 2");
-		lblNewLabel_10_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_10_1.setBounds(404, 304, 85, 28);
-		statuspanel.add(lblNewLabel_10_1);
-		
-		JLabel lblNewLabel_10_2 = new JLabel("Successfully Taken ");
-		lblNewLabel_10_2.setForeground(Color.GREEN);
-		lblNewLabel_10_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_10_2.setBounds(53, 356, 146, 28);
-		statuspanel.add(lblNewLabel_10_2);
-		
-		JLabel lblNewLabel_11 = new JLabel("New label");
-		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\success-green-check-mark-icon.jpg"));
-		lblNewLabel_11.setBounds(79, 397, 64, 62);
-		statuspanel.add(lblNewLabel_11);
-		
-		JLabel lblNewLabel_11_1 = new JLabel("New label");
-		lblNewLabel_11_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\red-x-line-icon.jpg"));
-		lblNewLabel_11_1.setBounds(404, 397, 64, 62);
-		statuspanel.add(lblNewLabel_11_1);
-		
-		JLabel lblNewLabel_10_2_1 = new JLabel("Not Taken ");
-		lblNewLabel_10_2_1.setForeground(Color.RED);
-		lblNewLabel_10_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_10_2_1.setBounds(404, 356, 146, 28);
-		statuspanel.add(lblNewLabel_10_2_1);
+		JLabel lblNewLabel_19 = new JLabel("");
+		lblNewLabel_19.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\book_medical_sign_icon_contrast_black_white_sketch_6922216\\book-medical.png"));
+		lblNewLabel_19.setBounds(10, 206, 30, 30);
+		panel.add(lblNewLabel_19);
 		
 		JLabel lblNewLabel_3_3_1 = new JLabel("");
 		lblNewLabel_3_3_1.setBounds(0, 51, 39, 34);
 		contentPane.add(lblNewLabel_3_3_1);
 		lblNewLabel_3_3_1.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("unlikely-arg-type")
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(panel.isVisible()==true)
@@ -321,6 +280,17 @@ public class DashBoard extends JFrame {
 					panel.setVisible(false);
 				}
 				panel.setVisible(true);
+				if(lblNewLabel_3.getText().equals("Male")) 
+				{
+					lblNewLabel_17.setVisible(true);
+					lblNewLabel_18_1.setVisible(false);
+					
+				}
+				else 
+				{
+					lblNewLabel_18_1.setVisible(true);
+					lblNewLabel_17.setVisible(false);
+				}
 				
 			}
 		});
@@ -329,7 +299,7 @@ public class DashBoard extends JFrame {
 		JLabel lblNewLabel_3_2 = new JLabel("Coronavirus disease (COVID-19): Vaccines");
 		lblNewLabel_3_2.setForeground(Color.WHITE);
 		lblNewLabel_3_2.setFont(new Font("Perpetua Titling MT", Font.BOLD, 25));
-		lblNewLabel_3_2.setBounds(85, 11, 655, 44);
+		lblNewLabel_3_2.setBounds(130, 5, 655, 44);
 		contentPane.add(lblNewLabel_3_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
@@ -337,15 +307,124 @@ public class DashBoard extends JFrame {
 		lblNewLabel_2_1.setBounds(0, 0, 941, 55);
 		contentPane.add(lblNewLabel_2_1);
 		
+		JLabel lblNewLabel_8 = new JLabel("New label");
+		lblNewLabel_8.setBackground(Color.WHITE);
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\White_full.png"));
+		lblNewLabel_8.setBounds(388, 70, 235, 20);
+		contentPane.add(lblNewLabel_8);
+		
+		JLabel status_name = new JLabel(db.name);
+		status_name.setFont(new Font("Microsoft PhagsPa", Font.BOLD, 15));
+		status_name.setBorder(new LineBorder(new Color(0, 0, 0)));
+		status_name.setBounds(388, 318, 229, 28);
+		contentPane.add(status_name);
+		
+		JLabel lblNewLabel_10 = new JLabel("Dose 1");
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_10.setBounds(288, 383, 85, 28);
+		contentPane.add(lblNewLabel_10);
+		
+		JLabel lblNewLabel_10_1 = new JLabel("Dose 2");
+		lblNewLabel_10_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_10_1.setBounds(633, 383, 85, 28);
+		contentPane.add(lblNewLabel_10_1);
+		
+		JLabel lblNewLabel_10_2 = new JLabel("Successfully Taken ");
+		lblNewLabel_10_2.setForeground(Color.GREEN);
+		lblNewLabel_10_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_10_2.setBounds(253, 436, 146, 28);
+		contentPane.add(lblNewLabel_10_2);
+		
+		JLabel lblNewLabel_10_2_1 = new JLabel("Not Taken ");
+		lblNewLabel_10_2_1.setForeground(Color.RED);
+		lblNewLabel_10_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_10_2_1.setBounds(605, 436, 146, 28);
+		contentPane.add(lblNewLabel_10_2_1);
+		
+		JLabel lblNewLabel_11 = new JLabel("New label");
+		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\success-green-check-mark-icon.jpg"));
+		lblNewLabel_11.setBounds(272, 487, 64, 62);
+		contentPane.add(lblNewLabel_11);
+		
+		JLabel lblNewLabel_11_1 = new JLabel("New label");
+		lblNewLabel_11_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\red-x-line-icon.jpg"));
+		lblNewLabel_11_1.setBounds(633, 487, 64, 62);
+		contentPane.add(lblNewLabel_11_1);
+		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LocalDate dob = LocalDate.parse(db.dob);   
-				System.out.println("You are " + calculateAge(dob)+" years old.");  
+				
+				VaccineBooking vb = new VaccineBooking(Adhar);
+				vb.setVisible(true);
+				setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(461, 260, 89, 23);
+		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btnNewButton.setBackground(Color.BLUE);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBounds(405, 606, 229, 34);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_9 = new JLabel("New label");
+		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_9.setBounds(258, 560, 115, 20);
+		contentPane.add(lblNewLabel_9);
+		
+		JLabel lblNewLabel_9_1 = new JLabel("New label");
+		lblNewLabel_9_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblNewLabel_9_1.setBounds(618, 560, 115, 20);
+		contentPane.add(lblNewLabel_9_1);
+		
+		JLabel lblNewLabel_8_1 = new JLabel("");
+		lblNewLabel_8_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\kindpng_1468338-modified-modified.png"));
+		lblNewLabel_8_1.setBounds(425, 127, 181, 180);
+		contentPane.add(lblNewLabel_8_1);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(0, 0, 0)));
+		separator.setBounds(132, 84, 735, 547);
+		contentPane.add(separator);
+		
+		JLabel lblNewLabel_12 = new JLabel("New label");
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\low_poly_banner_design_1711.jpg"));
+		lblNewLabel_12.setBounds(0, 51, 941, 639);
+		contentPane.add(lblNewLabel_12);
+		
+		if(db.FIRST_DOSE==null&&db.SECOND_DOSE==null)
+		{
+			lblNewLabel_11.setIcon(new ImageIcon("C:\\\\Users\\\\sumit\\\\Downloads\\\\red-x-line-icon.jpg"));
+			lblNewLabel_11_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\red-x-line-icon.jpg"));
+		    lblNewLabel_10_2_1.setText("    Not Taken ");
+		    lblNewLabel_10_2_1.setForeground(Color.RED);
+		    lblNewLabel_10_2.setText("    Not Taken ");
+		    lblNewLabel_10_2.setForeground(Color.RED);
+		    lblNewLabel_9.setVisible(false);
+		    lblNewLabel_9_1.setVisible(false);
+		    btnNewButton.setText("BOOK YOUR FIRST VACCINE");
+		}
+		else if(db.FIRST_DOSE.equals("Taken")&&db.SECOND_DOSE==null) {
+			lblNewLabel_11.setIcon(new ImageIcon("C:\\\\Users\\\\sumit\\\\Downloads\\\\success-green-check-mark-icon.jpg"));
+			lblNewLabel_10_2.setText("Successfully Taken ");
+			lblNewLabel_10_2.setForeground(Color.GREEN);
+			lblNewLabel_11_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\red-x-line-icon.jpg"));
+		    lblNewLabel_10_2_1.setText("    Not Taken ");
+		    lblNewLabel_10_2_1.setForeground(Color.RED);
+		    lblNewLabel_9.setText("Taken on "+db.FIRST_DOSE_DATE);
+		    lblNewLabel_9_1.setVisible(false);
+		    btnNewButton.setText("BOOK YOUR SECOND VACCINE");
+		}
+		else if(db.FIRST_DOSE.equals("Taken")&&db.SECOND_DOSE.equals("Taken")) {
+			lblNewLabel_11.setIcon(new ImageIcon("C:\\\\Users\\\\sumit\\\\Downloads\\\\success-green-check-mark-icon.jpg"));
+			lblNewLabel_10_2.setText("Successfully Taken ");
+			lblNewLabel_10_2.setForeground(Color.GREEN);
+			lblNewLabel_11_1.setIcon(new ImageIcon("C:\\\\\\\\Users\\\\\\\\sumit\\\\\\\\Downloads\\\\\\\\success-green-check-mark-icon.jpg"));
+		    lblNewLabel_10_2_1.setText("Successfully Taken ");
+		    lblNewLabel_10_2_1.setForeground(Color.GREEN);
+		    lblNewLabel_9.setText("Taken on "+db.FIRST_DOSE_DATE);
+		    lblNewLabel_9_1.setText("Taken on "+db.SECON_DOSE_DATE);
+		    btnNewButton.setVisible(false);
+		}
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

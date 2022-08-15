@@ -23,6 +23,8 @@ import javax.swing.UIManager;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.border.MatteBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Login extends JFrame {
 
@@ -134,11 +136,6 @@ public class Login extends JFrame {
 		lblNewLabel_8.setBounds(605, 121, 93, 14);
 		panel.add(lblNewLabel_8);
 		lblNewLabel_8.setForeground(Color.RED);
-		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\wallpaper2you_172698.jpg"));
-		lblNewLabel_4.setBounds(0, 52, 913, 596);
-		contentPane.add(lblNewLabel_4);
 		lblNewLabel_8.setVisible(false);
 		lblNewLabel_3.setVisible(false);
 		lblNewLabel_3_1.setVisible(false);
@@ -147,25 +144,58 @@ public class Login extends JFrame {
 		JButton btnNewButton_1 = new JButton("LOGIN ");
 		btnNewButton_1.setBackground(new Color(240, 248, 255));
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 191, 255), 3));
-		btnNewButton_1.setBounds(523, 288, 99, 25);
+		btnNewButton_1.setBounds(512, 324, 115, 29);
+		
 		panel.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_5 = new JLabel("Forgot PassWord");
+		lblNewLabel_5.setForeground(Color.BLUE);
+		lblNewLabel_5.setVisible(false);
+		lblNewLabel_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ForgotPass ps = new ForgotPass(textField.getText());
+				ps.setVisible(true);
+				setVisible(false);
+			}
+		});
+		lblNewLabel_5.setBounds(527, 278, 86, 14);
+		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Coronavirus disease (COVID-19): Vaccines");
 		lblNewLabel_3_2.setForeground(Color.WHITE);
 		lblNewLabel_3_2.setFont(new Font("Perpetua Titling MT", Font.BOLD, 25));
-		lblNewLabel_3_2.setBounds(83, 5, 655, 44);
+		lblNewLabel_3_2.setBounds(100, 5, 655, 44);
 		contentPane.add(lblNewLabel_3_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
 		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\heading.jpg"));
 		lblNewLabel_2_1.setBounds(0, 0, 927, 55);
 		contentPane.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Home_page hp = new Home_page();
+				hp.setVisible(true);
+				setVisible(false);
+			}
+		});
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\BACK.jpg"));
+		lblNewLabel_4.setBounds(822, 610, 37, 38);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\low_poly_banner_design_1711.jpg"));
+		lblNewLabel_6.setBounds(0, 55, 913, 604);
+		contentPane.add(lblNewLabel_6);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblNewLabel_8.setVisible(false);
 				lblNewLabel_3_1.setVisible(false);
 				lblNewLabel_3.setVisible(false);
-				
+				lblNewLabel_5.setVisible(false);
 				
 				
 				if(textField.getText().equals(""))
@@ -183,6 +213,8 @@ public class Login extends JFrame {
 					break;
 				case 2:
 					lblNewLabel_3_1.setVisible(true);
+					lblNewLabel_5.setVisible(true);
+					
 					break;
 				}
 				

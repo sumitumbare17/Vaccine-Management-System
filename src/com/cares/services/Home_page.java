@@ -2,7 +2,6 @@ package com.cares.services;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -45,7 +44,7 @@ public class Home_page extends JFrame {
 	 */
 	public Home_page() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 930, 479);
+		setBounds(100, 100, 930, 522);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -97,8 +96,8 @@ public class Home_page extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\wallpaper2you_172698.jpg"));
-		lblNewLabel.setBounds(-1, 53, 915, 387);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\sumit\\Downloads\\low_poly_banner_design_1711.jpg"));
+		lblNewLabel.setBounds(-1, 53, 915, 430);
 		contentPane.add(lblNewLabel);
 	}
 }

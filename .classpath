@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="menu-12.11-beta.jar"/>
 	<classpathentry kind="lib" path="jgoodies-common-1.8.0.jar" sourcepath="jgoodies-common-1.8.0-sources.jar"/>
 	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
